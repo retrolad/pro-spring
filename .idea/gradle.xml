@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/chapter02" />
+            <option value="$PROJECT_DIR$/chapter03" />
+            <option value="$PROJECT_DIR$/chapter03/bean-autowiring" />
+            <option value="$PROJECT_DIR$/chapter03/collections" />
+            <option value="$PROJECT_DIR$/chapter03/field-injection" />
+            <option value="$PROJECT_DIR$/chapter03/injection" />
+            <option value="$PROJECT_DIR$/chapter03/method-injection" />
+            <option value="$PROJECT_DIR$/chapter03/nesting" />
+            <option value="$PROJECT_DIR$/chapter03/setter-injection" />
+            <option value="$PROJECT_DIR$/chapter03/simple-types" />
+            <option value="$PROJECT_DIR$/chapter04" />
+            <option value="$PROJECT_DIR$/chapter04/bean-factory" />
+            <option value="$PROJECT_DIR$/chapter04/bean-init-method" />
+            <option value="$PROJECT_DIR$/chapter04/factory-bean" />
+            <option value="$PROJECT_DIR$/chapter04/initializing-bean" />
+            <option value="$PROJECT_DIR$/chapter04/post-construct" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/chapter03/bean-autowiring" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../Utils/Gradle/gradle-7.3.3" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

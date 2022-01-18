@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="lyricHolder" class="com.retrolad.ch03.xml.LyricHolder" />
+
+    <bean id="collectionInjection" class="com.retrolad.ch03.xml.CollectionInjection">
+        <property name="list">
+            <list>
+                <value>Manchester United</value>
+                <ref bean="lyricHolder"/>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="McLaren Mercedes">
+                    <value>Lando Normis</value>
+                </entry>
+                <entry key="someBean">
+                    <ref bean="lyricHolder"/>
+                </entry>
+            </map>
+        </property>
+        <property name="set">
+            <set>
+                <value>Ralph</value>
+                <ref bean="lyricHolder"/>
+            </set>
+        </property>
+        <property name="props">
+            <props>
+                <prop key="title">Cyberpunk 2077</prop>
+                <prop key="developer">CD Projekt RED</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

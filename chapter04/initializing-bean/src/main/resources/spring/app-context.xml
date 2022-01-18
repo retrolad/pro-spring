@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
+
+    <bean id="singerOne" class="com.retrolad.ch04.SingerWithInterface"
+          p:name="David Gahan" p:age="59"/>
+
+    <bean id="singerTwo" class="com.retrolad.ch04.SingerWithInterface"
+          p:age="31"/>
+
+    <bean id="singerThree" class="com.retrolad.ch04.SingerWithInterface"
+          p:name="Alex Turner"/>
+</beans>
