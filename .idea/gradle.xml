@@ -23,10 +23,12 @@
             <option value="$PROJECT_DIR$/chapter04" />
             <option value="$PROJECT_DIR$/chapter04/bean-factory" />
             <option value="$PROJECT_DIR$/chapter04/bean-init-method" />
+            <option value="$PROJECT_DIR$/chapter04/events" />
             <option value="$PROJECT_DIR$/chapter04/factory-bean" />
             <option value="$PROJECT_DIR$/chapter04/initializing-bean" />
             <option value="$PROJECT_DIR$/chapter04/message-source" />
             <option value="$PROJECT_DIR$/chapter04/post-construct" />
+            <option value="$PROJECT_DIR$/chapter04/resource" />
           </set>
         </option>
       </GradleProjectSettings>
