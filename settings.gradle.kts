@@ -26,3 +26,7 @@ include("chapter04:bean-factory")
 include("chapter04:message-source")
 include("chapter04:events")
 include("chapter04:resource")
+include("chapter04:environment")
+include("chapter04:property-placeholder")
+
+include("chapter05:aop-hello-world")
