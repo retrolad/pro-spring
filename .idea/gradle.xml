@@ -25,6 +25,7 @@
             <option value="$PROJECT_DIR$/chapter04/bean-init-method" />
             <option value="$PROJECT_DIR$/chapter04/factory-bean" />
             <option value="$PROJECT_DIR$/chapter04/initializing-bean" />
+            <option value="$PROJECT_DIR$/chapter04/message-source" />
             <option value="$PROJECT_DIR$/chapter04/post-construct" />
           </set>
         </option>
