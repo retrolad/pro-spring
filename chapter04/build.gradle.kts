@@ -8,10 +8,10 @@ subprojects {
     }
 
     dependencies {
-        val springVersion = rootProject.extra.get("springVersion")
+        val spring = rootProject.extra.get("spring") as? Map<String, String>
         val javaxAnnotationVersion = rootProject.extra.get("javaxAnnotationVersion")
 
-        implementation("org.springframework:spring-context:$springVersion")
+        implementation(spring!!.getValue("context"))
         implementation("javax.annotation:javax.annotation-api:$javaxAnnotationVersion")
     }
 }
