@@ -34,3 +34,5 @@ include("chapter05:simple-before-advice")
 include("chapter05:simple-after-returning-advice")
 include("chapter05:static-pointcut")
 findProject(":chapter05:static-pointcut")?.name = "static-pointcut"
+include("chapter05:dynamic-pointcut")
+findProject(":chapter05:dynamic-pointcut")?.name = "dynamic-pointcut"
