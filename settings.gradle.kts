@@ -32,3 +32,5 @@ include("chapter04:property-placeholder")
 include("chapter05:aop-hello-world")
 include("chapter05:simple-before-advice")
 include("chapter05:simple-after-returning-advice")
+include("chapter05:static-pointcut")
+findProject(":chapter05:static-pointcut")?.name = "static-pointcut"
