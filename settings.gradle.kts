@@ -31,3 +31,4 @@ include("chapter04:property-placeholder")
 
 include("chapter05:aop-hello-world")
 include("chapter05:simple-before-advice")
+include("chapter05:simple-after-returning-advice")
