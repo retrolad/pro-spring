@@ -1,7 +1,7 @@
 package com.retrolad.ch05;
 
 public class Documentarist  {
-    private GrammyGuitarist guitarist;
+    protected GrammyGuitarist guitarist;
 
     public void execute() {
         guitarist.sing();
