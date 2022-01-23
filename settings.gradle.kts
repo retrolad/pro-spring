@@ -44,3 +44,5 @@ include("chapter05:modification-introduction")
 include("chapter05:proxyfactorybean")
 include("chapter05:aop-namespace")
 include("chapter05:aspectj-annotations")
+
+include("chapter06:plain-jdbc")
