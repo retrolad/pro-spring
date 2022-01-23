@@ -16,7 +16,7 @@
         p:guitarist-ref="proxyOne"/>
 
     <bean id="proxyOne" class="org.springframework.aop.framework.ProxyFactoryBean"
-        p:target-ref="max" p:interceptorNames-ref="interceptorAdviceNames"/>
+        p:target-ref="max" p:interceptorNames-ref="interceptorAdviceNames" p:proxyTargetClass="true"/>
 
     <util:list id="interceptorAdviceNames">
         <value>advice</value>
@@ -26,7 +26,7 @@
         p:guitarist-ref="proxyTwo"/>
 
     <bean id="proxyTwo" class="org.springframework.aop.framework.ProxyFactoryBean"
-          p:target-ref="max" p:interceptorNames-ref="interceptorAdvisorNames"/>
+          p:target-ref="max" p:interceptorNames-ref="interceptorAdvisorNames" p:proxyTargetClass="true"/>
 
     <util:list id="interceptorAdvisorNames">
         <value>advisor</value>
