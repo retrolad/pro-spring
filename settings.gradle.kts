@@ -46,3 +46,4 @@ include("chapter05:aop-namespace")
 include("chapter05:aspectj-annotations")
 
 include("chapter06:plain-jdbc")
+include("chapter06:spring-jdbc-annotations")
