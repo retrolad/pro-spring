@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Game {
 
     private Long id;
-    private Long singerId;
+    private Long developerId;
     private String title;
     private Date releaseDate;
 
@@ -17,12 +17,12 @@ public class Game {
         this.id = id;
     }
 
-    public Long getSingerId() {
-        return singerId;
+    public Long getDeveloperId() {
+        return developerId;
     }
 
-    public void setSingerId(Long singerId) {
-        this.singerId = singerId;
+    public void setDeveloperId(Long developerId) {
+        this.developerId = developerId;
     }
 
     public String getTitle() {
@@ -45,7 +45,7 @@ public class Game {
     public String toString() {
         return "Game{" +
                 "id=" + id +
-                ", singerId=" + singerId +
+                ", singerId=" + developerId +
                 ", title='" + title + '\'' +
                 ", releaseDate=" + releaseDate +
                 '}';

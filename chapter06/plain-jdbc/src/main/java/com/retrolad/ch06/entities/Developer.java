@@ -42,6 +42,10 @@ public class Developer {
         this.games = games;
     }
 
+    public void addGame(Game game) {
+        games.add(game);
+    }
+
     @Override
     public String toString() {
         return "Developer{" +
@@ -51,4 +55,5 @@ public class Developer {
                 ", games=" + games +
                 '}';
     }
+
 }

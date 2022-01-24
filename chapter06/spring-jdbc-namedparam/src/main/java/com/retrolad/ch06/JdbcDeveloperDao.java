@@ -51,12 +51,12 @@ public class JdbcDeveloperDao implements DeveloperDao, InitializingBean {
     }
 
     @Override
-    public List<Developer> findAllWithDetail() {
+    public List<Developer> findAllWithGames() {
         return null;
     }
 
     @Override
-    public void insertWithDetail(Developer developer) {
+    public void insertWithGames(Developer developer) {
 
     }
 

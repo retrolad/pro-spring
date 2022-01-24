@@ -11,6 +11,6 @@ public interface DeveloperDao {
     void insert(Developer developer);
     void update(Developer developer);
     void delete(Long developerId);
-    List<Developer> findAllWithDetail();
-    void insertWithDetail(Developer developer);
+    List<Developer> findAllWithGames();
+    void insertWithGames(Developer developer);
 }

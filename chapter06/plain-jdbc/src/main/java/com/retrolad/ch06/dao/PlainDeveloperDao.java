@@ -140,12 +140,12 @@ public class PlainDeveloperDao implements DeveloperDao{
     }
 
     @Override
-    public List<Developer> findAllWithDetail() {
+    public List<Developer> findAllWithGames() {
         throw new NotImplementedException("findAllWithDetail");
     }
 
     @Override
-    public void insertWithDetail(Developer developer) {
+    public void insertWithGames(Developer developer) {
         throw new NotImplementedException("insertWithDetail");
     }
 }
