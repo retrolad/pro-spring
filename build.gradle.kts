@@ -6,6 +6,11 @@ buildscript {
         val springVersion = "5.3.14"
 
         val aspectjVersion = "1.9.7"
+
+        // db libs
+        val derbyVersion = "10.15.2.0"
+        val dbcpVersion = "2.8.0"
+        val h2Version = "2.1.210"
         val postgresqlVersion = "42.3.1"
 
         // testing libs
@@ -36,7 +41,10 @@ buildscript {
         ))
 
         set("db", mapOf(
-            "postgresql" to "org.postgresql:postgresql:$postgresqlVersion"
+            "derby"         to "org.apache.derby:derby:$derbyVersion",
+            "dbcp"          to "org.apache.commons:commons-dbcp2:$dbcpVersion",
+            "h2"     to "com.h2database:h2:$h2Version",
+            "postgresql"    to "org.postgresql:postgresql:$postgresqlVersion"
         ))
     }
 }

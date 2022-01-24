@@ -47,3 +47,5 @@ include("chapter05:aspectj-annotations")
 
 include("chapter06:plain-jdbc")
 include("chapter06:spring-jdbc-annotations")
+include("chapter06:spring-jdbc-embedded")
+findProject(":chapter06:spring-jdbc-embedded")?.name = "spring-jdbc-embedded"
