@@ -51,4 +51,3 @@ include("chapter06:spring-jdbc-embedded")
 include("chapter06:spring-jdbc-namedparam")
 include("chapter06:spring-jdbc-rowmapper")
 include("chapter06:spring-jdbc-resultsetextractor")
-findProject(":chapter06:spring-jdbc-resultsetextractor")?.name = "spring-jdbc-resultsetextractor"

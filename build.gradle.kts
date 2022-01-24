@@ -6,6 +6,7 @@ buildscript {
         val springVersion = "5.3.14"
 
         val aspectjVersion = "1.9.7"
+        val javaxAnnotationVersion = "1.3.2"
 
         // db libs
         val derbyVersion = "10.15.2.0"
@@ -35,6 +36,7 @@ buildscript {
         set("misc", mapOf(
             "aspectjweaver" to "org.aspectj:aspectjweaver:$aspectjVersion",
             "aspectjrt" to "org.aspectj:aspectjrt:$aspectjVersion",
+            "javaxAnnotation" to "javax.annotation:javax.annotation-api:$javaxAnnotationVersion",
             "lang3" to "org.apache.commons:commons-lang3:3.12.0",
             "logback" to "ch.qos.logback:logback-classic:$logbackVersion",
             "slf4j" to "org.slf4j:slf4j-api:$slf4jVersion"

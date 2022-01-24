@@ -18,7 +18,9 @@ subprojects {
         implementation(misc.getValue("lang3"))
         implementation(misc.getValue("logback"))
         implementation(misc.getValue("slf4j"))
+        implementation(misc.getValue("javaxAnnotation"))
         implementation(db.getValue("h2"))
+        implementation(db.getValue("dbcp"))
         implementation(db.getValue("postgresql"))
         testImplementation(testing.getValue("junit"))
     }
