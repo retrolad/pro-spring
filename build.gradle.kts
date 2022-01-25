@@ -4,6 +4,7 @@ buildscript {
 
         // spring libs
         val springVersion = "5.3.14"
+        val bootVersion by extra {"2.6.2"}
 
         val aspectjVersion = "1.9.7"
         val javaxAnnotationVersion = "1.3.2"
@@ -47,6 +48,10 @@ buildscript {
             "dbcp"          to "org.apache.commons:commons-dbcp2:$dbcpVersion",
             "h2"     to "com.h2database:h2:$h2Version",
             "postgresql"    to "org.postgresql:postgresql:$postgresqlVersion"
+        ))
+
+        set("boot", mapOf(
+            "starterJdbc" to "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion"
         ))
     }
 }

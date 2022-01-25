@@ -8,20 +8,22 @@ subprojects {
     }
 
     dependencies {
-        val spring = rootProject.extra.get("spring") as Map<String, String>
-        val misc = rootProject.extra.get("misc") as Map<String, String>
-        val testing = rootProject.extra.get("testing") as Map<String, String>
-        val db = rootProject.extra.get("db") as Map<String, String>
+        val spring = rootProject.extra.get("spring") as Map<*, *>
+        val misc = rootProject.extra.get("misc") as Map<*, *>
+        val testing = rootProject.extra.get("testing") as Map<*, *>
+        val db = rootProject.extra.get("db") as Map<*, *>
 
-        implementation(spring.getValue("context"))
-        implementation(spring.getValue("jdbc"))
-        implementation(misc.getValue("lang3"))
-        implementation(misc.getValue("logback"))
-        implementation(misc.getValue("slf4j"))
-        implementation(misc.getValue("javaxAnnotation"))
-        implementation(db.getValue("h2"))
-        implementation(db.getValue("dbcp"))
-        implementation(db.getValue("postgresql"))
-        testImplementation(testing.getValue("junit"))
+        if(!project.name.contains("boot")){
+            implementation(spring["context"] as String)
+            implementation(spring["jdbc"] as String)
+            implementation(misc["lang3"] as String)
+            implementation(misc["logback"] as String )
+            implementation(misc["slf4j"] as String)
+            implementation(misc["javaxAnnotation"] as String)
+            implementation(db["h2"] as String)
+            implementation(db["dbcp"] as String)
+        }
+        implementation(db["postgresql"] as String)
+        testImplementation(testing["junit"] as String)
     }
 }
