@@ -1,11 +1,14 @@
 package com.retrolad.ch06.dao;
 
+import com.retrolad.ch06.InsertDeveloper;
 import com.retrolad.ch06.SelectAllDevelopers;
 import com.retrolad.ch06.SelectDeveloperByName;
 import com.retrolad.ch06.UpdateDeveloper;
 import com.retrolad.ch06.entities.Developer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -13,6 +16,7 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Repository("developerDao")
 public class JdbcDeveloperDao implements DeveloperDao {
@@ -22,6 +26,7 @@ public class JdbcDeveloperDao implements DeveloperDao {
     private SelectAllDevelopers selectAllSingers;
     private SelectDeveloperByName selectDeveloperByName;
     private UpdateDeveloper updateDeveloper;
+    private InsertDeveloper insertDeveloper;
 
     @Resource(name="dataSource")
     public void setDataSource(DataSource dataSource) {
@@ -29,6 +34,7 @@ public class JdbcDeveloperDao implements DeveloperDao {
         this.selectAllSingers = new SelectAllDevelopers(dataSource);
         this.selectDeveloperByName = new SelectDeveloperByName(dataSource);
         this.updateDeveloper = new UpdateDeveloper(dataSource);
+        this.insertDeveloper = new InsertDeveloper(dataSource);
     }
 
     public DataSource getDataSource() {
@@ -54,7 +60,14 @@ public class JdbcDeveloperDao implements DeveloperDao {
 
     @Override
     public void insert(Developer developer) {
-
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("name", developer.getName());
+        paramMap.put("founded", developer.getFounded());
+        // This retrieves auto generated key
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        insertDeveloper.updateByNamedParam(paramMap, keyHolder);
+        developer.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
+        logger.info("New developer inserted with id: " + developer.getId());
     }
 
     @Override

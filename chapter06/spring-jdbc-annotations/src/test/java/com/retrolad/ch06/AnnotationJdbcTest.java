@@ -54,6 +54,16 @@ public class AnnotationJdbcTest {
         listDevelopers(developers);
     }
 
+    @Test
+    public void testDeveloperInsert() {
+        Developer developer = new Developer();
+        developer.setName("Electronic Arts");
+        developer.setFounded(new Date(new GregorianCalendar(1993, Calendar.JANUARY, 5).getTime().getTime()));
+        developerDao.insert(developer);
+
+        listDevelopers(developerDao.findAll());
+    }
+
     public void listDevelopers(List<Developer> developers) {
         developers.forEach(developer -> {
             System.out.println(developer);
