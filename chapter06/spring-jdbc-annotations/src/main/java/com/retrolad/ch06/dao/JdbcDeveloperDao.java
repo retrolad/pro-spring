@@ -24,6 +24,7 @@ public class JdbcDeveloperDao implements DeveloperDao {
     private UpdateDeveloper updateDeveloper;
     private InsertDeveloper insertDeveloper;
     private InsertDeveloperGame insertDeveloperGame;
+    private StoredFunctionNameById storedFunctionNameById;
 
     @Resource(name="dataSource")
     public void setDataSource(DataSource dataSource) {
@@ -32,6 +33,7 @@ public class JdbcDeveloperDao implements DeveloperDao {
         this.selectDeveloperByName = new SelectDeveloperByName(dataSource);
         this.updateDeveloper = new UpdateDeveloper(dataSource);
         this.insertDeveloper = new InsertDeveloper(dataSource);
+        this.storedFunctionNameById = new StoredFunctionNameById(dataSource);
     }
 
     public DataSource getDataSource() {
@@ -52,7 +54,7 @@ public class JdbcDeveloperDao implements DeveloperDao {
 
     @Override
     public String findNameById(Long id) {
-        return null;
+        return storedFunctionNameById.execute(id).get(0);
     }
 
     @Override

@@ -88,6 +88,13 @@ public class AnnotationJdbcTest {
         listDevelopers(developerDao.findAllWithGames());
     }
 
+    @Test
+    public void findNameById() {
+        String developerName = developerDao.findNameById(9L);
+        assertEquals(developerName, "Naughty Dogs");
+        System.out.println("Retrieved value: " + developerName);
+    }
+
     public void listDevelopers(List<Developer> developers) {
         developers.forEach(developer -> {
             System.out.println(developer);
