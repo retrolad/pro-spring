@@ -2,6 +2,7 @@ package com.retrolad.ch06.dao;
 
 import com.retrolad.ch06.SelectAllDevelopers;
 import com.retrolad.ch06.SelectDeveloperByName;
+import com.retrolad.ch06.UpdateDeveloper;
 import com.retrolad.ch06.entities.Developer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +21,14 @@ public class JdbcDeveloperDao implements DeveloperDao {
     private DataSource dataSource;
     private SelectAllDevelopers selectAllSingers;
     private SelectDeveloperByName selectDeveloperByName;
+    private UpdateDeveloper updateDeveloper;
 
     @Resource(name="dataSource")
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         this.selectAllSingers = new SelectAllDevelopers(dataSource);
         this.selectDeveloperByName = new SelectDeveloperByName(dataSource);
+        this.updateDeveloper = new UpdateDeveloper(dataSource);
     }
 
     public DataSource getDataSource() {
@@ -56,7 +59,11 @@ public class JdbcDeveloperDao implements DeveloperDao {
 
     @Override
     public void update(Developer developer) {
-
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("name", developer.getName());
+        paramMap.put("founded", developer.getFounded());
+        paramMap.put("id", developer.getId());
+        updateDeveloper.updateByNamedParam(paramMap);
     }
 
     @Override

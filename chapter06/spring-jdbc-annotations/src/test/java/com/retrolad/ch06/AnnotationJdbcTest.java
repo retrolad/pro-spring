@@ -10,6 +10,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
+import java.sql.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -36,6 +39,18 @@ public class AnnotationJdbcTest {
     public void testFindByName() {
         List<Developer> developers = developerDao.findByName("Bethesda Softworks");
         assertEquals(1, developers.size());
+        listDevelopers(developers);
+    }
+
+    @Test
+    public void testSingerUpdate() {
+        Developer developer = new Developer();
+        developer.setId(3L);
+        developer.setName("id Software");
+        developer.setFounded(new Date(new GregorianCalendar(1991, Calendar.FEBRUARY, 3).getTime().getTime()));
+        developerDao.update(developer);
+
+        List<Developer> developers = developerDao.findAll();
         listDevelopers(developers);
     }
 
