@@ -3,6 +3,7 @@ package com.retrolad.ch06;
 import com.retrolad.ch06.config.DbConfig;
 import com.retrolad.ch06.dao.JdbcDeveloperDao;
 import com.retrolad.ch06.entities.Developer;
+import com.retrolad.ch06.entities.Game;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.GenericApplicationContext;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -62,6 +64,28 @@ public class AnnotationJdbcTest {
         developerDao.insert(developer);
 
         listDevelopers(developerDao.findAll());
+    }
+
+    @Test
+    public void testInsertWithGames() {
+        Developer developer = new Developer();
+        developer.setName("Naughty Dogs");
+        developer.setFounded(new Date(new GregorianCalendar(1994, Calendar.MARCH, 7).getTime().getTime()));
+        developer.setGames(new ArrayList<>());
+
+        Game game = new Game();
+        game.setTitle("The Last Of Us");
+        game.setReleaseDate(new Date(new GregorianCalendar(2013, Calendar.JUNE, 15).getTime().getTime()));
+        developer.addGame(game);
+
+        Game game2 = new Game();
+        game2.setTitle("Uncharted 4");
+        game2.setReleaseDate(new Date(new GregorianCalendar(2016, Calendar.MAY, 18).getTime().getTime()));
+        developer.addGame(game2);
+
+        developerDao.insertWithGames(developer);
+
+        listDevelopers(developerDao.findAllWithGames());
     }
 
     public void listDevelopers(List<Developer> developers) {

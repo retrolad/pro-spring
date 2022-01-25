@@ -1,22 +1,18 @@
 package com.retrolad.ch06.dao;
 
-import com.retrolad.ch06.InsertDeveloper;
-import com.retrolad.ch06.SelectAllDevelopers;
-import com.retrolad.ch06.SelectDeveloperByName;
-import com.retrolad.ch06.UpdateDeveloper;
+import com.retrolad.ch06.*;
 import com.retrolad.ch06.entities.Developer;
+import com.retrolad.ch06.entities.Game;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @Repository("developerDao")
 public class JdbcDeveloperDao implements DeveloperDao {
@@ -27,6 +23,7 @@ public class JdbcDeveloperDao implements DeveloperDao {
     private SelectDeveloperByName selectDeveloperByName;
     private UpdateDeveloper updateDeveloper;
     private InsertDeveloper insertDeveloper;
+    private InsertDeveloperGame insertDeveloperGame;
 
     @Resource(name="dataSource")
     public void setDataSource(DataSource dataSource) {
@@ -59,7 +56,7 @@ public class JdbcDeveloperDao implements DeveloperDao {
     }
 
     @Override
-    public void insert(Developer developer) {
+    public Long insert(Developer developer) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", developer.getName());
         paramMap.put("founded", developer.getFounded());
@@ -68,6 +65,8 @@ public class JdbcDeveloperDao implements DeveloperDao {
         insertDeveloper.updateByNamedParam(paramMap, keyHolder);
         developer.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
         logger.info("New developer inserted with id: " + developer.getId());
+
+        return developer.getId();
     }
 
     @Override
@@ -86,11 +85,59 @@ public class JdbcDeveloperDao implements DeveloperDao {
 
     @Override
     public List<Developer> findAllWithGames() {
-        return null;
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+        String sql = "select d.id, d.name, d.founded, g.id as game_id, g.title, g.release_date " +
+                "from developer d left join game g on g.developer_id=d.id";
+        return jdbcTemplate.query(sql, rs -> {
+            Map<Long, Developer> developersWithGames = new HashMap<>();
+
+            while(rs.next()) {
+                Long id = rs.getLong("id");
+                Developer developer = developersWithGames.get(id);
+                if(developer == null) {
+                    developer = new Developer();
+                    developer.setId(rs.getLong("id"));
+                    developer.setName(rs.getString("name"));
+                    developer.setFounded(rs.getDate("founded"));
+                    developer.setGames(new ArrayList<>());
+                }
+
+                Long gameId = rs.getLong("game_id");
+                if(gameId > 0) {
+                    Game game = new Game();
+                    game.setId(gameId);
+                    game.setTitle(rs.getString("title"));
+                    game.setReleaseDate(rs.getDate("release_date"));
+                    developer.addGame(game);
+                }
+
+                developersWithGames.put(id, developer);
+            }
+
+            return new ArrayList<>(developersWithGames.values());
+        });
     }
 
     @Override
     public void insertWithGames(Developer developer) {
+        // For every operation create new instance of InsertDeveloperGame
+        // since BatchSqlUpdate is not thread safe
+        this.insertDeveloperGame = new InsertDeveloperGame(dataSource);
+        Long developerId = insert(developer);
+        List<Game> games = developer.getGames();
+        Map<String, Object> paramMap;
 
+        if(games != null) {
+            for(Game game : games) {
+                paramMap = new HashMap<>();
+                paramMap.put("title", game.getTitle());
+                paramMap.put("developer_id", developerId);
+                paramMap.put("release_date", game.getReleaseDate());
+                insertDeveloperGame.updateByNamedParam(paramMap);
+            }
+        }
+        // Force batch update, if there are < BATCH_SIZE games
+        // in the queue
+        insertDeveloperGame.flush();
     }
 }
