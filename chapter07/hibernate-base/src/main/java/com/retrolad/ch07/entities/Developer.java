@@ -4,11 +4,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "developer")
+@NamedQueries({
+        @NamedQuery(name = "Developer.findAllWithGame",
+                    query = "select distinct d from Developer d " +
+                            "left join fetch d.games g " +
+                            "left join fetch d.cities c")
+})
 public class Developer implements Serializable {
 
     private Long id;

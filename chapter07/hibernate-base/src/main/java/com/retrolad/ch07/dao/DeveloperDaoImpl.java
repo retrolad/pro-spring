@@ -22,8 +22,11 @@ public class DeveloperDaoImpl implements DeveloperDao {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Developer> findAllWithGame() {
-        return null;
+        return sessionFactory.getCurrentSession()
+                .getNamedQuery("Developer.findAllWithGame")
+                .list();
     }
 
     @Override
