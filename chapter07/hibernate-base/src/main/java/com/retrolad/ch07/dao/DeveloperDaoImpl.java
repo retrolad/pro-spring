@@ -30,8 +30,12 @@ public class DeveloperDaoImpl implements DeveloperDao {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Developer findById(Long id) {
-        return null;
+        return (Developer) sessionFactory.getCurrentSession()
+                .getNamedQuery("Developer.findById")
+                .setParameter("id", id)
+                .uniqueResult();
     }
 
     @Override

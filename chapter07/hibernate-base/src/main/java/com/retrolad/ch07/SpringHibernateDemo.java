@@ -21,9 +21,12 @@ public class SpringHibernateDemo {
         GenericApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 
         DeveloperDao developerDao = ctx.getBean(DeveloperDao.class);
-        List<Developer> developers = developerDao.findAllWithGame();
 
-        listDevelopersWithGame(developers);
+        Developer developer = developerDao.findById(4L);
+        logger.info(developer.toString());
+
+//        List<Developer> developers = developerDao.findAllWithGame();
+//        listDevelopersWithGame(developers);
     }
 
     private static void listDevelopersWithGame(List<Developer> developers) {

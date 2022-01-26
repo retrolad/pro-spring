@@ -12,7 +12,12 @@ import java.util.Set;
         @NamedQuery(name = "Developer.findAllWithGame",
                     query = "select distinct d from Developer d " +
                             "left join fetch d.games g " +
-                            "left join fetch d.cities c")
+                            "left join fetch d.cities c"),
+        @NamedQuery(name = "Developer.findById",
+                    query = "select d from Developer d " +
+                            "left join fetch d.games g " +
+                            "left join fetch d.cities c " +
+                            "where d.id = :id")
 })
 public class Developer implements Serializable {
 
