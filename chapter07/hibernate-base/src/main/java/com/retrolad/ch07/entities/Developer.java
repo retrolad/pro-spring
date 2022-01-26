@@ -98,6 +98,11 @@ public class Developer implements Serializable {
         this.cities = cities;
     }
 
+    public void addGame(Game game) {
+        game.setDeveloper(this);
+        games.add(game);
+    }
+
     @Override
     public String toString() {
         return "Developer{" +

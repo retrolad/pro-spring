@@ -2,6 +2,8 @@ package com.retrolad.ch07.dao;
 
 import com.retrolad.ch07.entities.Developer;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @Repository("developerDao")
 public class DeveloperDaoImpl implements DeveloperDao {
 
+    private static final Logger logger = LoggerFactory.getLogger(DeveloperDaoImpl.class);
     private SessionFactory sessionFactory;
 
     @Override
@@ -40,7 +43,9 @@ public class DeveloperDaoImpl implements DeveloperDao {
 
     @Override
     public Developer save(Developer developer) {
-        return null;
+        sessionFactory.getCurrentSession().saveOrUpdate(developer);
+        logger.info("Developer save with id: " + developer.getId());
+        return developer;
     }
 
     @Override
