@@ -15,6 +15,9 @@ buildscript {
         val h2Version = "2.1.210"
         val postgresqlVersion = "42.3.1"
 
+        // persistence
+        val hibernateVersion = "5.6.3.Final"
+
         // testing libs
         val junitVersion = "4.13.2"
 
@@ -27,7 +30,8 @@ buildscript {
         set("spring", mapOf(
             "context" to "org.springframework:spring-context:$springVersion",
             "aop" to "org.springframework:spring-aop:$springVersion",
-            "jdbc" to "org.springframework:spring-jdbc:$springVersion"
+            "jdbc" to "org.springframework:spring-jdbc:$springVersion",
+            "orm" to "org.springframework:spring-orm:$springVersion",
         ))
 
         set("testing", mapOf(
@@ -52,6 +56,10 @@ buildscript {
 
         set("boot", mapOf(
             "starterJdbc" to "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion"
+        ))
+
+        set("hibernate", mapOf(
+            "em" to "org.hibernate:hibernate-entitymanager:$hibernateVersion"
         ))
     }
 }

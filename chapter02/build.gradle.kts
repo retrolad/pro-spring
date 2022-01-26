@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation("org.springframework:spring-context:5.3.14")
+    implementation("org.springframework:spring-context:5.3.15")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 
     implementation("com.google.guava:guava:31.0.1-jre")
