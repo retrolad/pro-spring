@@ -47,7 +47,15 @@ public class DeveloperServiceImpl implements DeveloperService {
 
     @Override
     public Developer save(Developer developer) {
-        return null;
+        if(developer.getId() == null) {
+            logger.info("Inserting new developer");
+            em.persist(developer);
+        } else {
+            em.merge(developer);
+            logger.info("Updating existing developer");
+        }
+        logger.info("Developer saved with id: " + developer.getId());
+        return developer;
     }
 
     @Override

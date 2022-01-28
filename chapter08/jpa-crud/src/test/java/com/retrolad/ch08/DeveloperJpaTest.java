@@ -13,6 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
+import java.sql.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -30,6 +33,24 @@ public class DeveloperJpaTest {
         ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
         developerService = ctx.getBean(DeveloperService.class);
         assertNotNull(developerService);
+    }
+
+    @Test
+    public void testInsert() {
+        Developer developer = new Developer();
+        developer.setName("Ubisoft");
+        developer.setFounded(new Date(
+                new GregorianCalendar(1986, Calendar.MARCH, 28)
+                        .getTime().getTime()));
+        Game game = new Game();
+        game.setTitle("Far Cry 3");
+        game.setReleaseDate(new Date(
+                new GregorianCalendar(2012, Calendar.NOVEMBER, 12)
+                        .getTime().getTime()));
+        developer.addGame(game);
+
+        developerService.save(developer);
+        assertNotNull(developer.getId());
     }
 
     @Test
