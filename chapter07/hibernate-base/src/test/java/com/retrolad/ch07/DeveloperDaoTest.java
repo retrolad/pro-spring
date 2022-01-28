@@ -49,4 +49,26 @@ public class DeveloperDaoTest {
         developerDao.save(developer);
         assertNotNull(developer.getId());
     }
+
+    @Test
+    public void testUpdate() {
+        Developer developer = developerDao.findById(2L);
+        assertNotNull(developer);
+
+        Game game = developer.getGames().stream().filter(g -> g.getTitle().equals("DOOM"))
+                .findFirst().orElseGet(null);
+
+        assertNotNull(game);
+        developer.setName("Bethesda Softworks");
+        developer.removeGame(game);
+        developerDao.save(developer);
+    }
+
+    @Test
+    public void testDelete() {
+        Developer developer = developerDao.findById(2L);
+        assertNotNull(developer);
+
+        developerDao.delete(developer);
+    }
 }

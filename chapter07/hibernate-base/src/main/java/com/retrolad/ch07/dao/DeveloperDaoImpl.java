@@ -50,7 +50,8 @@ public class DeveloperDaoImpl implements DeveloperDao {
 
     @Override
     public void delete(Developer developer) {
-
+        sessionFactory.getCurrentSession().delete(developer);
+        logger.info("Developer deleted with id: " + developer.getId());
     }
 
     @Resource(name = "sessionFactory")

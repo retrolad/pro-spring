@@ -103,6 +103,10 @@ public class Developer implements Serializable {
         games.add(game);
     }
 
+    public void removeGame(Game game) {
+        getGames().remove(game);
+    }
+
     @Override
     public String toString() {
         return "Developer{" +
