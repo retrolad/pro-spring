@@ -1,4 +1,4 @@
-package com.retrolad.ch08;
+package com.retrolad.ch08.services;
 
 import com.retrolad.ch08.entities.Developer;
 

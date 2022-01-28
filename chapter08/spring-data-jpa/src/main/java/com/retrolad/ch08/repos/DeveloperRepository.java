@@ -1,4 +1,4 @@
-package com.retrolad.ch08;
+package com.retrolad.ch08.repos;
 
 import com.retrolad.ch08.entities.Developer;
 import org.springframework.data.repository.CrudRepository;

@@ -21,7 +21,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = "com.retrolad.ch08")
-@EnableJpaRepositories(basePackages = "com.retrolad.ch08")
+@EnableJpaRepositories(basePackages = "com.retrolad.ch08.repos")
 public class DataJpaConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(DataJpaConfig.class);

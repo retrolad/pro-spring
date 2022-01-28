@@ -1,7 +1,9 @@
-package com.retrolad.ch08;
+package com.retrolad.ch08.services;
 
 import com.google.common.collect.Lists;
 import com.retrolad.ch08.entities.Developer;
+import com.retrolad.ch08.repos.DeveloperRepository;
+import com.retrolad.ch08.services.DeveloperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +13,7 @@ import java.util.List;
 
 @Service("springJpaDeveloperService")
 @Transactional
-public class DeveloperServiceImpl implements DeveloperService{
+public class DeveloperServiceImpl implements DeveloperService {
 
     @Autowired
     private DeveloperRepository developerRepository;

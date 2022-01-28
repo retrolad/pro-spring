@@ -2,6 +2,10 @@ package com.retrolad.ch08;
 
 import com.retrolad.ch08.config.DataJpaConfig;
 import com.retrolad.ch08.entities.Developer;
+import com.retrolad.ch08.entities.Game;
+import com.retrolad.ch08.services.DeveloperService;
+import com.retrolad.ch08.services.GameService;
+import com.retrolad.ch08.services.GameServiceImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,12 +24,15 @@ public class DeveloperDataJpaTest {
 
     private GenericApplicationContext ctx;
     private DeveloperService developerService;
+    private GameService gameService;
 
     @Before
     public void setUp() throws Exception {
         ctx = new AnnotationConfigApplicationContext(DataJpaConfig.class);
         developerService = ctx.getBean(DeveloperService.class);
+        gameService = ctx.getBean(GameService.class);
         assertNotNull(developerService);
+        assertNotNull(gameService);
     }
 
     @Test
@@ -40,6 +47,12 @@ public class DeveloperDataJpaTest {
         List<Developer> developers = developerService.findByName("Naughty Dog");
         assertEquals(1, developers.size());
         logger.info(developers.toString());
+    }
+
+    @Test
+    public void testFindGameByTitle() {
+        List<Game> games = gameService.findByTitle("as");
+        logger.info(games.toString());
     }
 
     @After
