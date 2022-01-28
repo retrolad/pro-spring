@@ -17,6 +17,7 @@ buildscript {
 
         // persistence
         val hibernateVersion = "5.6.3.Final"
+        val hibernateJpaVersion = "1.0.0.Beta2"
 
         // testing libs
         val junitVersion = "4.13.2"
@@ -59,7 +60,8 @@ buildscript {
         ))
 
         set("hibernate", mapOf(
-            "em" to "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+            "em" to "org.hibernate:hibernate-entitymanager:$hibernateVersion",
+            "jpaApi" to "org.hibernate.javax.persistence:hibernate-jpa-2.2-api:$hibernateJpaVersion"
         ))
     }
 }

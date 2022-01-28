@@ -53,5 +53,6 @@ include("chapter06:spring-jdbc-rowmapper")
 include("chapter06:spring-jdbc-resultsetextractor")
 include("chapter06:spring-boot-jdbc")
 
-include("chapter07")
 include("chapter07:hibernate-base")
+
+include("chapter08:jpa-crud")
