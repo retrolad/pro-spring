@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Service("jpaDeveloperService")
@@ -39,7 +40,9 @@ public class DeveloperServiceImpl implements DeveloperService {
     @Transactional(readOnly = true)
     @Override
     public Developer findById(Long id) {
-        return null;
+        TypedQuery<Developer> query = em.createNamedQuery(Developer.FIND_BY_ID, Developer.class);
+        query.setParameter("id", id);
+        return query.getSingleResult();
     }
 
     @Override

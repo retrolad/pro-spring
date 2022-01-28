@@ -56,10 +56,10 @@ public class DeveloperJpaTest {
         developers.forEach(developer -> {
             logger.info(developer.toString());
             for (Game game : developer.getGames()) {
-                logger.info(game.toString());
+                logger.info("\tGame: " + game.toString());
             }
             for (City city : developer.getCities()) {
-                logger.info(city.toString());
+                logger.info("\tCity: " + city.toString());
             }
         });
     }
