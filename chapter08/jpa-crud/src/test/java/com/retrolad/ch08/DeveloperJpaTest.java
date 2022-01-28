@@ -54,6 +54,20 @@ public class DeveloperJpaTest {
     }
 
     @Test
+    public void testUpdate() {
+        Developer developer = developerService.findById(2L);
+        assertNotNull(developer);
+
+        Game game = developer.getGames().stream().filter(g -> g.getTitle().equals("DOOM"))
+                .findFirst().orElseGet(null);
+
+        assertNotNull(game);
+        developer.setName("Bethesda Softworks");
+        developer.removeGame(game);
+        developerService.save(developer);
+    }
+
+    @Test
     public void testFindAll() {
         List<Developer> developers = developerService.findAll();
         assertEquals(5, developers.size());

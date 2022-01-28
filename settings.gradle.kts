@@ -56,3 +56,4 @@ include("chapter06:spring-boot-jdbc")
 include("chapter07:hibernate-base")
 
 include("chapter08:jpa-crud")
+include("chapter08:spring-data-jpa")

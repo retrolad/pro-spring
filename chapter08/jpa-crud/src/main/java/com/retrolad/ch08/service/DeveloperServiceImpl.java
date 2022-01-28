@@ -10,6 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("jpaDeveloperService")
@@ -60,12 +65,30 @@ public class DeveloperServiceImpl implements DeveloperService {
 
     @Override
     public void delete(Developer developer) {
+        // Merge the state of the given entity into
+        // the current persistence context
+        Developer mergedDeveloper = em.merge(developer);
+        em.remove(mergedDeveloper);
 
+        logger.info("Developer with id: " + developer.getId()
+                    + " deleted successfully");
     }
 
     @Transactional(readOnly = true)
     @Override
     public List<Developer> findAllByNativeQuery() {
-        return null;
+        return em.createNativeQuery(ALL_DEVELOPER_NATIVE_QUERY, "singerResult").getResultList();
+//        return em.createNativeQuery(ALL_DEVELOPER_NATIVE_QUERY, Developer.class).getResultList();
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Developer> findByCriteriaQuery() {
+
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Developer> criteriaQuery = cb.createQuery(Developer.class);
+        Root<Developer> developerRoot = criteriaQuery.from(Developer.class);
+//        developerRoot.fetch(Developer_.games, JoinType.LEFT);
+        return new ArrayList<>();
     }
 }

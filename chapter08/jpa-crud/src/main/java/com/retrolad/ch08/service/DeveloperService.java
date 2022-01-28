@@ -11,4 +11,5 @@ public interface DeveloperService {
     Developer save(Developer developer);
     void delete(Developer developer);
     List<Developer> findAllByNativeQuery();
+    List<Developer> findByCriteriaQuery();
 }

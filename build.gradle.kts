@@ -4,6 +4,7 @@ buildscript {
 
         // spring libs
         val springVersion = "5.3.14"
+        val springDataVersion = "2.6.1"
         val bootVersion by extra {"2.6.2"}
 
         val aspectjVersion = "1.9.7"
@@ -26,13 +27,14 @@ buildscript {
         val slf4jVersion = "1.7.33"
         val logbackVersion = "1.2.10"
 
-
+        val guavaVersion = "31.0.1-jre"
 
         set("spring", mapOf(
             "context" to "org.springframework:spring-context:$springVersion",
             "aop" to "org.springframework:spring-aop:$springVersion",
             "jdbc" to "org.springframework:spring-jdbc:$springVersion",
             "orm" to "org.springframework:spring-orm:$springVersion",
+            "data" to "org.springframework.data:spring-data-jpa:$springDataVersion"
         ))
 
         set("testing", mapOf(
@@ -45,7 +47,8 @@ buildscript {
             "javaxAnnotation" to "javax.annotation:javax.annotation-api:$javaxAnnotationVersion",
             "lang3" to "org.apache.commons:commons-lang3:3.12.0",
             "logback" to "ch.qos.logback:logback-classic:$logbackVersion",
-            "slf4j" to "org.slf4j:slf4j-api:$slf4jVersion"
+            "slf4j" to "org.slf4j:slf4j-api:$slf4jVersion",
+            "guava" to "com.google.guava:guava:$guavaVersion"
         ))
 
         set("db", mapOf(
@@ -61,7 +64,8 @@ buildscript {
 
         set("hibernate", mapOf(
             "em" to "org.hibernate:hibernate-entitymanager:$hibernateVersion",
-            "jpaApi" to "org.hibernate.javax.persistence:hibernate-jpa-2.2-api:$hibernateJpaVersion"
+            "jpaApi" to "org.hibernate.javax.persistence:hibernate-jpa-2.2-api:$hibernateJpaVersion",
+            "jpaModelGen" to "org.hibernate:hibernate-jpamodelgen:$hibernateVersion"
         ))
     }
 }
