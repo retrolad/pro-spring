@@ -32,6 +32,7 @@ buildscript {
         set("spring", mapOf(
             "context" to "org.springframework:spring-context:$springVersion",
             "aop" to "org.springframework:spring-aop:$springVersion",
+            "aspects" to "org.springframework:spring-aspects:$springVersion",
             "jdbc" to "org.springframework:spring-jdbc:$springVersion",
             "orm" to "org.springframework:spring-orm:$springVersion",
             "data" to "org.springframework.data:spring-data-jpa:$springDataVersion"
@@ -65,7 +66,8 @@ buildscript {
         set("hibernate", mapOf(
             "em" to "org.hibernate:hibernate-entitymanager:$hibernateVersion",
             "jpaApi" to "org.hibernate.javax.persistence:hibernate-jpa-2.2-api:$hibernateJpaVersion",
-            "jpaModelGen" to "org.hibernate:hibernate-jpamodelgen:$hibernateVersion"
+            "jpaModelGen" to "org.hibernate:hibernate-jpamodelgen:$hibernateVersion",
+            "envers" to "org.hibernate:hibernate-envers:$hibernateVersion"
         ))
     }
 }

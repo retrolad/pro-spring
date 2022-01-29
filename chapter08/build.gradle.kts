@@ -18,6 +18,7 @@ subprojects {
             implementation(spring["orm"] as String)
             implementation(spring["context"] as String)
             implementation(spring["data"] as String)
+            implementation(spring["aspects"] as String)
             implementation(misc["lang3"] as String)
             implementation(misc["logback"] as String )
             implementation(misc["slf4j"] as String)
@@ -26,6 +27,7 @@ subprojects {
             implementation(hibernate["em"] as String)
             implementation(hibernate["jpaApi"] as String)
             implementation(hibernate["jpaModelGen"] as String)
+            implementation(hibernate["envers"] as String)
             implementation(db["dbcp"] as String)
         }
         implementation(db["postgresql"] as String)
