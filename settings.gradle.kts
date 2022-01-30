@@ -58,4 +58,4 @@ include("chapter07:hibernate-base")
 include("chapter08:jpa-crud")
 include("chapter08:spring-data-jpa")
 include("chapter08:hibernate-envers")
-findProject(":chapter08:hibernate-envers")?.name = "hibernate-envers"
+include("chapter09:transactions-jta")

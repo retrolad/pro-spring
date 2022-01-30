@@ -19,6 +19,7 @@ buildscript {
         // persistence
         val hibernateVersion = "5.6.3.Final"
         val hibernateJpaVersion = "1.0.0.Beta2"
+        val atomikosVersion = "5.0.8"
 
         // testing libs
         val junitVersion = "4.13.2"
@@ -35,7 +36,8 @@ buildscript {
             "aspects" to "org.springframework:spring-aspects:$springVersion",
             "jdbc" to "org.springframework:spring-jdbc:$springVersion",
             "orm" to "org.springframework:spring-orm:$springVersion",
-            "data" to "org.springframework.data:spring-data-jpa:$springDataVersion"
+            "data" to "org.springframework.data:spring-data-jpa:$springDataVersion",
+            "context-support" to "org.springframework:spring-context-support:$springVersion"
         ))
 
         set("testing", mapOf(
@@ -60,14 +62,16 @@ buildscript {
         ))
 
         set("boot", mapOf(
-            "starterJdbc" to "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion"
+            "starterJdbc" to "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion",
+            "starterJpa" to "org.springframework.boot:spring-boot-starter-jpa:$bootVersion"
         ))
 
         set("hibernate", mapOf(
             "em" to "org.hibernate:hibernate-entitymanager:$hibernateVersion",
             "jpaApi" to "org.hibernate.javax.persistence:hibernate-jpa-2.2-api:$hibernateJpaVersion",
             "jpaModelGen" to "org.hibernate:hibernate-jpamodelgen:$hibernateVersion",
-            "envers" to "org.hibernate:hibernate-envers:$hibernateVersion"
+            "envers" to "org.hibernate:hibernate-envers:$hibernateVersion",
+            "atomikos" to "com.atomikos:transactions-hibernate4:$atomikosVersion"
         ))
     }
 }
