@@ -68,3 +68,5 @@ include("chapter10:spring-validator")
 findProject(":chapter10:spring-validator")?.name = "spring-validator"
 include("chapter10:JSR349")
 findProject(":chapter10:JSR349")?.name = "JSR349"
+include("chapter10:JSR349-custom")
+findProject(":chapter10:JSR349-custom")?.name = "JSR349-custom"
