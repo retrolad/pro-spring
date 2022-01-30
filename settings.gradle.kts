@@ -64,3 +64,5 @@ include("chapter09:boot-jta")
 include("chapter10")
 include("chapter10:custom-formatter")
 findProject(":chapter10:custom-formatter")?.name = "custom-formatter"
+include("chapter10:spring-validator")
+findProject(":chapter10:spring-validator")?.name = "spring-validator"
