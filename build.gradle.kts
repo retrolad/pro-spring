@@ -28,7 +28,10 @@ buildscript {
         val slf4jVersion = "1.7.33"
         val logbackVersion = "1.2.10"
 
+        val javaxValidationVersion = "2.0.1.Final"
         val guavaVersion = "31.0.1-jre"
+        val jodaTimeVersion = "2.10.13"
+        val hibernateValidatorVersion = "7.0.1.Final"
 
         set("spring", mapOf(
             "context" to "org.springframework:spring-context:$springVersion",
@@ -51,7 +54,10 @@ buildscript {
             "lang3" to "org.apache.commons:commons-lang3:3.12.0",
             "logback" to "ch.qos.logback:logback-classic:$logbackVersion",
             "slf4j" to "org.slf4j:slf4j-api:$slf4jVersion",
-            "guava" to "com.google.guava:guava:$guavaVersion"
+            "guava" to "com.google.guava:guava:$guavaVersion",
+            "artemis" to "org.apache.activemq:artemis-jms-server:2.17.0",
+            "joda" to "joda-time:joda-time:$jodaTimeVersion",
+            "validation" to "javax.validation:validation-api:$javaxValidationVersion"
         ))
 
         set("db", mapOf(
@@ -63,7 +69,9 @@ buildscript {
 
         set("boot", mapOf(
             "starterJdbc" to "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion",
-            "starterJpa" to "org.springframework.boot:spring-boot-starter-jpa:$bootVersion"
+            "starterJpa" to "org.springframework.boot:spring-boot-starter-data-jpa:$bootVersion",
+            "starterJta" to "org.springframework.boot:spring-boot-starter-jta-atomikos:$bootVersion",
+            "starterJms" to "org.springframework.boot:spring-boot-starter-artemis:$bootVersion"
         ))
 
         set("hibernate", mapOf(
@@ -71,7 +79,8 @@ buildscript {
             "jpaApi" to "org.hibernate.javax.persistence:hibernate-jpa-2.2-api:$hibernateJpaVersion",
             "jpaModelGen" to "org.hibernate:hibernate-jpamodelgen:$hibernateVersion",
             "envers" to "org.hibernate:hibernate-envers:$hibernateVersion",
-            "atomikos" to "com.atomikos:transactions-hibernate4:$atomikosVersion"
+            "atomikos" to "com.atomikos:transactions-hibernate4:$atomikosVersion",
+            "validator" to "org.hibernate.validator:hibernate-validator:$hibernateValidatorVersion",
         ))
     }
 }

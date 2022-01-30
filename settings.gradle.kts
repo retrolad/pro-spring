@@ -58,4 +58,9 @@ include("chapter07:hibernate-base")
 include("chapter08:jpa-crud")
 include("chapter08:spring-data-jpa")
 include("chapter08:hibernate-envers")
+
 include("chapter09:transactions-jta")
+include("chapter09:boot-jta")
+include("chapter10")
+include("chapter10:custom-formatter")
+findProject(":chapter10:custom-formatter")?.name = "custom-formatter"
