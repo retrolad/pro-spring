@@ -70,3 +70,6 @@ include("chapter10:JSR349")
 findProject(":chapter10:JSR349")?.name = "JSR349"
 include("chapter10:JSR349-custom")
 findProject(":chapter10:JSR349-custom")?.name = "JSR349-custom"
+include("chapter11")
+include("chapter11:base-task")
+findProject(":chapter11:base-task")?.name = "base-task"

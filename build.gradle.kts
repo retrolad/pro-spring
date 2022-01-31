@@ -32,6 +32,7 @@ buildscript {
         val guavaVersion = "31.0.1-jre"
         val jodaTimeVersion = "2.10.13"
         val hibernateValidatorVersion = "7.0.1.Final"
+        val utVersion = "6.0.1.GA"
 
         set("spring", mapOf(
             "context" to "org.springframework:spring-context:$springVersion",
@@ -57,7 +58,8 @@ buildscript {
             "guava" to "com.google.guava:guava:$guavaVersion",
             "artemis" to "org.apache.activemq:artemis-jms-server:2.17.0",
             "joda" to "joda-time:joda-time:$jodaTimeVersion",
-            "validation" to "javax.validation:validation-api:$javaxValidationVersion"
+            "validation" to "javax.validation:validation-api:$javaxValidationVersion",
+            "usertype" to "org.jadira.usertype:usertype.core:$utVersion"
         ))
 
         set("db", mapOf(
