@@ -61,15 +61,16 @@ include("chapter08:hibernate-envers")
 
 include("chapter09:transactions-jta")
 include("chapter09:boot-jta")
-include("chapter10")
+
 include("chapter10:custom-formatter")
-findProject(":chapter10:custom-formatter")?.name = "custom-formatter"
 include("chapter10:spring-validator")
-findProject(":chapter10:spring-validator")?.name = "spring-validator"
 include("chapter10:JSR349")
-findProject(":chapter10:JSR349")?.name = "JSR349"
 include("chapter10:JSR349-custom")
-findProject(":chapter10:JSR349-custom")?.name = "JSR349-custom"
-include("chapter11")
+
 include("chapter11:base-task")
-findProject(":chapter11:base-task")?.name = "base-task"
+
+include("chapter12")
+include("chapter12:base-remote")
+findProject(":chapter12:base-remote")?.name = "base-remote"
+include("chapter12:spring-invoker")
+findProject(":chapter12:spring-invoker")?.name = "spring-invoker"

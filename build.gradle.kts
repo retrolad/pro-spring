@@ -36,12 +36,15 @@ buildscript {
 
         set("spring", mapOf(
             "context" to "org.springframework:spring-context:$springVersion",
+            "webmvc" to "org.springframework:spring-webmvc:$springVersion",
             "aop" to "org.springframework:spring-aop:$springVersion",
             "aspects" to "org.springframework:spring-aspects:$springVersion",
             "jdbc" to "org.springframework:spring-jdbc:$springVersion",
             "orm" to "org.springframework:spring-orm:$springVersion",
             "data" to "org.springframework.data:spring-data-jpa:$springDataVersion",
-            "context-support" to "org.springframework:spring-context-support:$springVersion"
+            "context-support" to "org.springframework:spring-context-support:$springVersion",
+            "test" to "org.springframework:spring-test:$springVersion",
+            "tx" to "org.springframework:spring-tx:$springVersion"
         ))
 
         set("testing", mapOf(
@@ -59,7 +62,9 @@ buildscript {
             "artemis" to "org.apache.activemq:artemis-jms-server:2.17.0",
             "joda" to "joda-time:joda-time:$jodaTimeVersion",
             "validation" to "javax.validation:validation-api:$javaxValidationVersion",
-            "usertype" to "org.jadira.usertype:usertype.core:$utVersion"
+            "usertype" to "org.jadira.usertype:usertype.core:$utVersion",
+            "yasson" to "org.eclipse:yasson:2.0.4",
+            "jackson-databind" to "com.fasterxml.jackson.core:jackson-databind:2.13.1"
         ))
 
         set("db", mapOf(
@@ -84,6 +89,10 @@ buildscript {
             "atomikos" to "com.atomikos:transactions-hibernate4:$atomikosVersion",
             "validator" to "org.hibernate.validator:hibernate-validator:$hibernateValidatorVersion",
         ))
+
+        set("web", mapOf(
+            "servlet" to "javax:javaee-web-api:8.0.1"
+        ));
     }
 }
 
