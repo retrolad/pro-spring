@@ -72,3 +72,5 @@ include("chapter11:base-task")
 include("chapter12:base-remote")
 include("chapter12:spring-invoker")
 include("chapter12:jms-activemq")
+include("chapter12:boot-jms")
+findProject(":chapter12:boot-jms")?.name = "boot-jms"

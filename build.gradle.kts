@@ -69,6 +69,7 @@ buildscript {
             "jackson-databind" to "com.fasterxml.jackson.core:jackson-databind:2.13.1",
             "hornetq" to "org.hornetq:hornetq-jms-client:2.4.8.Final",
             "artemisClient" to "org.apache.activemq:artemis-jms-client:$artemisVersion",
+            "artemisServer" to "org.apache.activemq:artemis-jms-server:$artemisVersion",
             "jms" to "javax.jms:javax.jms-api:$jmsVersion"
         ))
 
