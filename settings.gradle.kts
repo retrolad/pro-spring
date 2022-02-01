@@ -69,8 +69,6 @@ include("chapter10:JSR349-custom")
 
 include("chapter11:base-task")
 
-include("chapter12")
 include("chapter12:base-remote")
-findProject(":chapter12:base-remote")?.name = "base-remote"
 include("chapter12:spring-invoker")
-findProject(":chapter12:spring-invoker")?.name = "spring-invoker"
+include("chapter12:jms-activemq")

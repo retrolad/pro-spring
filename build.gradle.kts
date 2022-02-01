@@ -9,6 +9,8 @@ buildscript {
 
         val aspectjVersion = "1.9.7"
         val javaxAnnotationVersion = "1.3.2"
+        val jmsVersion =  "2.0.1"
+        val artemisVersion = "2.17.0"
 
         // db libs
         val derbyVersion = "10.15.2.0"
@@ -44,7 +46,8 @@ buildscript {
             "data" to "org.springframework.data:spring-data-jpa:$springDataVersion",
             "context-support" to "org.springframework:spring-context-support:$springVersion",
             "test" to "org.springframework:spring-test:$springVersion",
-            "tx" to "org.springframework:spring-tx:$springVersion"
+            "tx" to "org.springframework:spring-tx:$springVersion",
+            "jms" to "org.springframework:spring-jms:$springVersion"
         ))
 
         set("testing", mapOf(
@@ -63,8 +66,10 @@ buildscript {
             "joda" to "joda-time:joda-time:$jodaTimeVersion",
             "validation" to "javax.validation:validation-api:$javaxValidationVersion",
             "usertype" to "org.jadira.usertype:usertype.core:$utVersion",
-            "yasson" to "org.eclipse:yasson:2.0.4",
-            "jackson-databind" to "com.fasterxml.jackson.core:jackson-databind:2.13.1"
+            "jackson-databind" to "com.fasterxml.jackson.core:jackson-databind:2.13.1",
+            "hornetq" to "org.hornetq:hornetq-jms-client:2.4.8.Final",
+            "artemisClient" to "org.apache.activemq:artemis-jms-client:$artemisVersion",
+            "jms" to "javax.jms:javax.jms-api:$jmsVersion"
         ))
 
         set("db", mapOf(
