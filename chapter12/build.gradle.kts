@@ -27,12 +27,11 @@ subprojects {
             implementation(misc["slf4j"] as String)
             implementation(misc["javaxAnnotation"] as String)
             implementation(misc["guava"] as String)
-//            implementation(misc["yasson"] as String)
-            implementation(misc["jackson-databind"] as String)
+            implementation(misc["jacksonDatabind"] as String)
             implementation(hibernate["em"] as String)
-            implementation(hibernate["atomikos"] as String) {
-                exclude("org.hibernate", "hibernate")
-            }
+//            implementation(hibernate["atomikos"] as String) {
+//                exclude("org.hibernate", "hibernate")
+//            }
             implementation(db["dbcp"] as String)
         }
         implementation(db["postgresql"] as String)

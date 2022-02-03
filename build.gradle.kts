@@ -6,11 +6,14 @@ buildscript {
         val springVersion = "5.3.14"
         val springDataVersion = "2.6.1"
         val bootVersion by extra {"2.6.2"}
+        val springSecurityVersion = "5.5.1"
 
         val aspectjVersion = "1.9.7"
         val javaxAnnotationVersion = "1.3.2"
         val jmsVersion =  "2.0.1"
         val artemisVersion = "2.17.0"
+        val httpclientVersion = "4.5.13"
+        val castorVersion = "1.4.1"
 
         // db libs
         val derbyVersion = "10.15.2.0"
@@ -47,7 +50,10 @@ buildscript {
             "context-support" to "org.springframework:spring-context-support:$springVersion",
             "test" to "org.springframework:spring-test:$springVersion",
             "tx" to "org.springframework:spring-tx:$springVersion",
-            "jms" to "org.springframework:spring-jms:$springVersion"
+            "jms" to "org.springframework:spring-jms:$springVersion",
+            "oxm" to "org.springframework:spring-oxm:$springVersion",
+            "securityWeb" to "org.springframework.security:spring-security-web:$springSecurityVersion",
+            "securityConfig" to "org.springframework.security:spring-security-config:$springSecurityVersion"
         ))
 
         set("testing", mapOf(
@@ -66,11 +72,12 @@ buildscript {
             "joda" to "joda-time:joda-time:$jodaTimeVersion",
             "validation" to "javax.validation:validation-api:$javaxValidationVersion",
             "usertype" to "org.jadira.usertype:usertype.core:$utVersion",
-            "jackson-databind" to "com.fasterxml.jackson.core:jackson-databind:2.13.1",
+            "jacksonDatabind" to "com.fasterxml.jackson.core:jackson-databind:2.13.1",
             "hornetq" to "org.hornetq:hornetq-jms-client:2.4.8.Final",
             "artemisClient" to "org.apache.activemq:artemis-jms-client:$artemisVersion",
             "artemisServer" to "org.apache.activemq:artemis-jms-server:$artemisVersion",
-            "jms" to "javax.jms:javax.jms-api:$jmsVersion"
+            "jms" to "javax.jms:javax.jms-api:$jmsVersion",
+            "castor" to "org.codehaus.castor:castor-xml:$castorVersion"
         ))
 
         set("db", mapOf(
@@ -97,8 +104,9 @@ buildscript {
         ))
 
         set("web", mapOf(
-            "servlet" to "javax:javaee-web-api:8.0.1"
-        ));
+            "servlet" to "javax:javaee-web-api:8.0.1",
+            "httpclient" to "org.apache.httpcomponents:httpclient:$httpclientVersion"
+        ))
     }
 }
 
