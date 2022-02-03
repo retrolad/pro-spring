@@ -28,6 +28,10 @@ buildscript {
 
         // testing libs
         val junitVersion = "4.13.2"
+        val mockitoVersion = "1.10.19"
+        val hamcrestVersion = "2.2"
+        val dbunitVersion = "2.7.2"
+        val poiVersion = "5.0.0"
 
         // logging libs
         val slf4jVersion = "1.7.33"
@@ -57,7 +61,13 @@ buildscript {
         ))
 
         set("testing", mapOf(
-            "junit" to "junit:junit:$junitVersion"
+            "junit" to "junit:junit:$junitVersion",
+            "mockito" to "org.mockito:mockito-all:$mockitoVersion",
+            "easymock" to "org.easymock:easymock:4.3",
+            "jmock" to "org.jmock:jmock:2.8.2",
+            "hamcrestCore" to "org.hamcrest:hamcrest-core:$hamcrestVersion",
+            "hamcrestLib" to "org.hamcrest:hamcrest-library:$hamcrestVersion",
+            "dbunit" to "org.dbunit:dbunit:$dbunitVersion"
         ))
 
         set("misc", mapOf(
@@ -77,7 +87,8 @@ buildscript {
             "artemisClient" to "org.apache.activemq:artemis-jms-client:$artemisVersion",
             "artemisServer" to "org.apache.activemq:artemis-jms-server:$artemisVersion",
             "jms" to "javax.jms:javax.jms-api:$jmsVersion",
-            "castor" to "org.codehaus.castor:castor-xml:$castorVersion"
+            "castor" to "org.codehaus.castor:castor-xml:$castorVersion",
+            "poi" to "org.apache.poi:poi:$poiVersion"
         ))
 
         set("db", mapOf(

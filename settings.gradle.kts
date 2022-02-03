@@ -75,3 +75,6 @@ include("chapter12:jms-activemq")
 include("chapter12:boot-jms")
 include("chapter12:rest")
 include("chapter12:secure-rest")
+
+include("chapter13:base-test")
+include("chapter13:mvc-unit-test")
