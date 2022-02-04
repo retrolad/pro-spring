@@ -78,3 +78,4 @@ include("chapter12:secure-rest")
 
 include("chapter13:base-test")
 include("chapter13:mvc-unit-test")
+include("chapter13:integration-test")

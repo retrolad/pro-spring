@@ -1,4 +1,4 @@
-package com.retrolad.ch13.services;
+package com.retrolad.ch13.init;
 
 import com.retrolad.ch13.entities.Developer;
 import com.retrolad.ch13.repos.DeveloperRepository;

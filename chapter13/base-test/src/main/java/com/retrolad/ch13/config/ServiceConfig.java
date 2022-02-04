@@ -1,6 +1,6 @@
 package com.retrolad.ch13.config;
 
-import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,18 +17,21 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.retrolad.ch13.repos")
-@ComponentScan(basePackages = "com.retrolad.ch13")
-public class DataServiceConfig {
+@ComponentScan(basePackages = {"com.retrolad.ch13"})
+public class ServiceConfig {
 
-    @Bean
-    public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/scheduling");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("root");
-        return dataSource;
-    }
+    @Autowired
+    private DataSource dataSource;
+
+//    @Bean
+//    public DataSource dataSource() {
+//        BasicDataSource dataSource = new BasicDataSource();
+//        dataSource.setDriverClassName("org.postgresql.Driver");
+//        dataSource.setUrl("jdbc:postgresql://localhost:5432/scheduling");
+//        dataSource.setUsername("postgres");
+//        dataSource.setPassword("root");
+//        return dataSource;
+//    }
 
     @Bean
     public Properties hibernateProperties() {
@@ -61,7 +64,7 @@ public class DataServiceConfig {
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setPackagesToScan("com.retrolad.ch13.entities");
-        factoryBean.setDataSource(dataSource());
+        factoryBean.setDataSource(dataSource);
         factoryBean.setJpaProperties(hibernateProperties());
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         factoryBean.afterPropertiesSet();
